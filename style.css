@@ -1,0 +1,136 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Josefine Sans', sans-serif;
+}
+
+.hero{
+    height: 20vh;
+    width: 100%;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding-top: 40px;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+nav ul {
+    display: flex;
+    gap: 20px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+nav ul li {
+    list-style: none;
+    display: inline-block;
+    padding: 10px 20px;
+    border: none;
+    background: rgb(0, 51, 128);
+    border-radius: 10px;
+    transition: .4s;
+}
+
+nav ul li:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    
+}
+
+nav ul li a:hover{
+    color: rgb(129, 129, 129);
+    transition: 0.3s;
+}
+
+body{
+    background-color: #1c1f2b;    
+}
+
+.button-container{
+    display: flex;
+    position: relative;
+}
+
+.container{
+    display: grid;
+    height: 80vh;
+    width: 100%;
+    
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 10px;
+    flex-grow: 1;
+
+    overflow-y: auto; 
+
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.titulos__cards{
+    color: white;
+}
+
+.card{
+    height: 20rem;
+    width: 15rem;
+    background-color: rgb(247, 238, 252);
+    border-radius: 10px;
+    margin: 1rem;
+
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    font-family: Poppins, sans-serif;
+    font-size: 18px;
+    text-align: justify;
+    line-height: 185%;
+}
+
+@property --angle{
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+.card::after, .card::before{
+    --angle: 0deg;
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-image: conic-gradient(from var(--angle), transparent 50%, rgb(158, 39, 39));
+    z-index: -1;
+    padding: 3px;
+    border-radius: 10px;
+    animation: 3s spin linear infinite;
+}
+
+.card::before{
+    filter: blur(1.5rem);
+    opacity: 0.4;
+}
+
+@keyframes spin{
+    from{
+        --angle: 0deg;
+    }
+    to{
+        --angle: 360deg;
+    }
+}
+
